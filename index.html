@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+	<head>
+		<meta charset="utf-8" />
+		<title>HackerNews Demo</title>
+		<meta name="description" content="HackerNews Demo">
+		<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+
+		<!-- add styles -->
+		<link href="css/style.css" rel="stylesheet" type="text/css" />
+
+		<!-- add javascripts -->
+		<script src="lib/angular.min.js"></script>
+    	<script src="lib/angular-animate.min.js"></script>
+		<script src="js/services/hnService.js"></script>
+		<script src="js/controllers/hnCtrl.js"></script>
+			    
+	</head>
+	<body ng-controller="hnController">
+		<header>
+			<div class="wrap">
+				<!-- logo -->
+				<a href="#!"><img class="logo" src="images/logo.png" /></a>
+				<h2>HackerNews</h2>
+			</div>
+		</header>
+		
+		<div class="wrap">
+			<div style="background-color: orange; padding:2px">
+				<h3>Top 20 Stories</h3>
+			</div>	
+
+      		<div ng-repeat="item in news">
+
+         		<a href="#" ng-click="onItemClicked(item);">
+  				<div class="story">
+      				<div class="line">
+          				<div class="story-inline" style="width: 20px; margin: 0px 10px; position: absolute;" >
+            				<span>{{$index + 1}}</span>
+          				</div>
+
+          				<div class="story-inline" style="margin-left: 50px;">
+              				<strong>{{item.title}}</strong>
+            				<div>
+              					<span>Posted By: {{item.by}}</span>
+            				</div>
+            			
+
+          				</div>
+      				</div>
+  				</div>
+				</a>
+				<div>
+				<iframe  ng-if="trurl == item.url" ng-src="{{trurl}}" style="width:100%;height:400px;"></iframe>
+				</div>	
+				
+      		</div>
+		</div>
+</body>
+</html>
