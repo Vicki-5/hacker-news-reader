@@ -1,4 +1,4 @@
-//Be careful while changing the strings injected here. It can cause problems if we use minification
+
 angular.module('app').controller('hnController',["$scope", "$sce","hnService",
     function ($scope, $sce, hnService) {
         
